@@ -25,10 +25,6 @@ public class Card {
         return suit;
     }
 
-    public void setSuit(Suit suit) {
-        this.suit = suit;
-    }
-
     public boolean isBlack() {
         return isBlack;
     }
@@ -40,10 +36,6 @@ public class Card {
 
     public Face getFace() {
         return face;
-    }
-
-    public void setFace(Face face) {
-        this.face = face;
     }
 
     public boolean isCovered() {

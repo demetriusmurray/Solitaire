@@ -10,12 +10,12 @@ import static Game.Foundation.drop;
 import static Util.MyConsole.CONSOLE;
 
 public class GamePlay {
-    public Tableau tab1, tab2, tab3, tab4, tab5, tab6, tab7;
+//    public Tableau tab1, tab2, tab3, tab4, tab5, tab6, tab7;
     public static Stack<Card> drawPile;
     public static Tableau[] arrayTabs;
     public static Stack<Card> tempStack;
     public static Stack<Card> lastStack;
-    public static Deck solitaireDeck;
+    public static Deck deck;
 
     public GamePlay() {
         setup();
@@ -43,7 +43,7 @@ public class GamePlay {
     }
 
     private static Card draw() {
-        return solitaireDeck.draw();
+        return deck.draw();
     }
 
     public static void drawCard(){
@@ -91,14 +91,14 @@ public class GamePlay {
     }
 
     public void resetDeck(){
-        solitaireDeck = new Deck();
-        solitaireDeck.shuffle();
+        deck = new Deck();
+        deck.shuffle();
     }
 
     public void refillDeck(){
-        if (solitaireDeck.deckOfCards.size()<1){
+        if (deck.size()<1){
             while(drawPile.iterator().hasNext())
-                solitaireDeck.deckOfCards.push(drawPile.pop());
+                deck.push(drawPile.pop());
         }
     }
 

@@ -5,7 +5,15 @@ import java.util.Stack;
 
 public class Deck {
 
-    public Stack<Card> deckOfCards = new Stack<>();
+    private Stack<Card> deckOfCards = new Stack<>();
+
+    public Deck() {
+        for (Suit suit : Suit.values()) {
+            for (Face face : Face.values()) {
+                deckOfCards.push(new Card(suit, face));
+            }
+        }
+    }
 
     public void shuffle(){
         Collections.shuffle(deckOfCards);
@@ -15,11 +23,15 @@ public class Deck {
         return deckOfCards.pop();
     }
 
-    public Deck() {
-        for (Suit suit : Suit.values()) {
-            for (Face face : Face.values()) {
-                deckOfCards.push(new Card(suit, face));
-            }
-        }
+    public int size() {
+        return deckOfCards.size();
+    }
+
+    public Stack<Card> getDeck() {
+        return deckOfCards;
+    }
+
+    public void push(Card card) {
+        deckOfCards.push(card);
     }
 }
