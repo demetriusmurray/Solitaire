@@ -2,6 +2,7 @@ package Game;
 
 import Cards.Card;
 
+import java.util.Collection;
 import java.util.Stack;
 
 import static Game.GamePlay.lastStack;
@@ -25,11 +26,11 @@ public class Tableau {
         stack.push(c);
     }
 
+    public boolean contains(Card c) { return stack.contains(c); }
+
     public Card showTopCard() { return stack.peek(); }
 
     public Card removeTopCard() { return stack.pop(); }
-
-    public boolean contains(Card c) { return stack.contains(c); }
 
     public Stack<Card> getStack() { return this.stack; }
 

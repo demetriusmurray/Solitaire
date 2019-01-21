@@ -8,13 +8,13 @@ import java.util.Stack;
 import static Cards.Card.toCard;
 import static Game.Foundation.drop;
 import static Util.MyConsole.CONSOLE;
-
+//TODO inject tempStack and lastStack INTO Tableau class? It is so tightly coupled
 public class GamePlay {
 //    public Tableau tab1, tab2, tab3, tab4, tab5, tab6, tab7;
-    public static Stack<Card> drawPile;
+    public static Stack<Card> drawPile = new Stack<>();
     public static Tableau[] arrayTabs;
-    public static Stack<Card> tempStack;
-    public static Stack<Card> lastStack;
+    public static Stack<Card> tempStack = new Stack<>();
+    public static Stack<Card> lastStack = new Stack<>();
     public static Deck deck;
 
     public GamePlay() {
@@ -104,10 +104,11 @@ public class GamePlay {
 
     private void setup() {
         resetDeck();
-        tempStack = new Stack<>();
-        drawPile = new Stack<>();
-        lastStack = null;
-        arrayTabs = new Tableau[]{new Tableau(), new Tableau(), new Tableau(), new Tableau(), new Tableau(), new Tableau(), new Tableau()};
+        arrayTabs = new Tableau[]{
+                new Tableau(), new Tableau(), new Tableau(),
+                new Tableau(), new Tableau(), new Tableau(),
+                new Tableau()
+        };
         deal();
     }
 
